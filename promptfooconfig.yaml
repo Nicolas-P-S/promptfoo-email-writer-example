@@ -1,8 +1,8 @@
-# yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
+yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
 
 # Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
 
-description: \"Email writer evaluation\"
+description: "Email writer evaluation"
 
 prompts:
   - |
@@ -42,6 +42,8 @@ tests:
         value: "mockups"
       - type: llm-rubric
         value: "The email uses a casual tone with contractions and short sentences"
+      - type: not-regex
+        value: "\\[.*?\\]"
  
   - vars:
       bullet_points: |
@@ -54,6 +56,8 @@ tests:
         value: "Q1"
       - type: llm-rubric
         value: "The email maintains a formal, professional tone throughout"
+      - type: not-regex
+        value: "\\[.*?\\]"
  
   - vars:
       bullet_points: |
@@ -66,3 +70,5 @@ tests:
         value: "Friday"
       - type: llm-rubric
         value: "The email conveys urgency with direct language and clear action items"
+      - type: not-regex
+        value: "\\[.*?\\]"
